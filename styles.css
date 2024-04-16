@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+#verificationCode {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #8b0000;
+}
+
+.copy-animation {
+    animation: copyAnimation 1s ease-in-out;
+}
+
+@keyframes copyAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+button#copyButton {
+    border: 2px solid #ffcc00;
+    color: #ff0000;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button#copyButton:hover {
+    background-color: #ffcc00;
+}
+
+.error {
+    color: red;
+    display: none;
+}
