@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.post('/send-message', async (req, res) => {
     try {
         const { chatId, message } = req.body;
-        const botToken = '6431039985:AAEfc74KMC6KdBcwubELNIBwvCgz2rA3U0s'; // Replace with your actual bot token
+        const botToken = await fetch(process.env.BOT_TOKEN, // Replace with your actual bot token
         const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
