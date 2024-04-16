@@ -1,18 +1,26 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
+const bodyParser = require('body-parser');
 
-app.post('/sendTelegramMessage', async (req, res) => {
+// Middleware to parse JSON bodies
+app.use(bodyParser.json());
+
+// Endpoint to handle sending messages
+app.post('/send-message', async (req, res) => {
     try {
-        // Your server-side code to handle the request and interact with the Telegram API
-        // Include your bot token securely here
-        const botToken = '6431039985:AAEfc74KMC6KdBcwubELNIBwvCgz2rA3U0s';
-        
-        // Process the request, interact with the Telegram API, and send the response back to the client
-        res.json({ success: true, message: 'Message sent successfully' });
+        const { chatId, message } = req.body;
+        const botToken = '6431039985:AAEfc74KMC6KdBcwubELNIBwvCgz2rA3U0s'; // Replace with your actual bot token
+        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text: message })
+        });
+        const data = await response.json();
+        res.json({ success: true, data });
     } catch (error) {
         console.error('Error:', error);
-        res.status(500).json({ success: false, message: 'Error sending message' });
+        res.status(500).json({ success: false, error: 'Internal server error' });
     }
 });
 
